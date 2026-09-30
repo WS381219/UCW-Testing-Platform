@@ -2,5 +2,8 @@ Flask
 psycopg[binary]
 python-dotenv
 
+# Frontend build (standalone Tailwind CLI, no Node.js needed)
+pytailwindcss
+
 # Testing
 pytest

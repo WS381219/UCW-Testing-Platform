@@ -8,6 +8,19 @@ setup-db:
 db-shell:
 	psql $${DATABASE_URL:-postgresql://postgres:postgres@localhost:5432/reinforcement_testing}
 
+# Pinned to v3: matches the tailwind.config.js/@tailwind directive setup used here.
+export TAILWINDCSS_VERSION ?= v3.4.13
+
+## install-frontend: Download the standalone Tailwind CLI binary (no Node.js needed).
+.PHONY: install-frontend
+install-frontend:
+	tailwindcss_install
+
+## build-css: Compile and minify the Tailwind stylesheet for production.
+.PHONY: build-css
+build-css:
+	tailwindcss -i ./static/css/src/input.css -o ./static/css/styles.css --minify
+
 ## run: Run the app in development mode.
 .PHONY: run
 run:

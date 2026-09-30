@@ -58,6 +58,8 @@ python3 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env          # then edit DATABASE_URL if needed
 make setup-db                 # create the PostgreSQL schema
+make install-frontend         # download the standalone Tailwind CLI binary (via pytailwindcss, no Node.js)
+make build-css                # compile static/css/styles.css (or `make watch-css` while developing)
 make run                      # or: python3 app.py
 make test                     # or: pytest -v
 ```
